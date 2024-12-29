@@ -1,4 +1,114 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+}
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 19px,
+        rgba(255, 255, 255, 0.1) 20px,
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    background-size: 20px 20px;
+    z-index: -1;
+}
+
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent, black 80%);
+    z-index: -1;
+}
+
 .canvasSize{
     width: 800px;
     height: 600px;
+}
+
+canvas{
+    border: 3px solid #ff00ff;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+#highScoreDisplay {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#scoreDisplay {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#scoreForm {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.heighScore{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: red;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+button {
+    margin: 10px 20px;
+    font-size: 16px;
+    background-color: #61dafb;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 250px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #61dafb;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* sert à faire clignoter la zone de jeu */
+@keyframes neonGlow {
+    /* 0% permet de définir le début de l'animation */
+    0% {
+        box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+    /* 50% permet de définir le milieu de l'animation */
+    50% {
+        box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+    }
+    /* 100% permet de définir la fin de l'animation */
+    100% {
+        box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
 }
