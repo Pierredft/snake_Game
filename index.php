@@ -10,7 +10,7 @@
     <div id="highScoreDisplay">Meilleur score: 0 par </div>
     <div id="scoreDisplay">Score: 0</div>
     <!-- Canvas permet  de dessiner des graphiques, des animations, des jeux, etc. sur la page Web à l'aide de JavaScript. -->
-    <canvas id="gameCanvas" class="canvasSize"></canvas>
+    <canvas id="gameCanvas" class="canvasSize" width="1000" height="400"></canvas>
     <div id="scoreForm">
         <input type="text" id="playerName" placeholder="Entrez votre nom">
         <button id="saveScore">Enregistrer le score</button>

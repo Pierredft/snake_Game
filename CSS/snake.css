@@ -38,10 +38,10 @@ body::after{
     z-index: -1;
 }
 
-.canvasSize{
+/* .canvasSize{
     width: 800px;
     height: 600px;
-}
+} */
 
 canvas{
     border: 3px solid #ff00ff;
