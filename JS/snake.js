@@ -106,23 +106,19 @@ document.addEventListener('keydown', event => { // Lorsqu'une touche est pressé
     }
 });
 
-
-
-
-
-
-
-
-
-
 // Lorsque le bouton saveScore est cliqué
 saveScoreButton.addEventListener('click', () => {
     const playerName = playerNameInput.value; // On récupère le nom du joueur
+    console.log('Envoi du score:', { name: playerName, score: score }); // Ajout d'un log pour vérifier les données envoyées
     fetch('save_score.php', { // On envoie une requête POST à save_score.php
         method: 'POST', // La méthode de la requête est POST
         headers: { 'Content-Type': 'application/json' }, // Le type de contenu est JSON
         body: JSON.stringify({ name: playerName, score: score }) // On envoie le nom du joueur et le score
-    }).then(response => response.json()).then(data => { // On récupère la réponse de la requête
+    }).then(response => {
+        console.log('Réponse reçue:', response); // Ajout d'un log pour vérifier la réponse
+        return response.json();
+    }).then(data => { // On récupère la réponse de la requête
+        console.log('Données reçues:', data); // Ajout d'un log pour vérifier les données reçues
         // On affiche un message en fonction de la réponse
         if (data.success) { // Si la réponse est un succès
             alert('Score enregistré avec succès!'); // On affiche un message de succès
@@ -166,5 +162,7 @@ function fetchHighScore() { // On récupère le meilleur score
         });
 }
 
-fetchHighScore(); // On récupère le meilleur score
-initGame(); // On initialise le jeu
+document.addEventListener('DOMContentLoaded', () => {
+    fetchHighScore(); // On récupère le meilleur score
+    initGame(); // On initialise le jeu
+});
